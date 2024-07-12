@@ -1,0 +1,131 @@
+import os
+
+# Create the necessary directory structure
+os.makedirs("/mnt/data/invitation", exist_ok=True)
+
+# HTML content
+index_html_content = """<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Πρόσκληση Γενεθλίων</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>gossip girl</h1>
+        </div>
+        <div class="content">
+            <div class="left-panel">
+                <h2>welcome</h2>
+                <p>to Gossip Girl! The Elite's favorite website for all the gossip on the Upper East Side and beyond.</p>
+                <h2>gossip</h2>
+                <p>The latest news on all the people you know.</p>
+                <h2>pics</h2>
+                <p>See what the fashionistas of the UES are wearing.</p>
+                <h2>parties</h2>
+                <p>Your invitation was probably lost in the mail! CLICK HERE to see what you missed.</p>
+                <h2>links</h2>
+            </div>
+            <div class="center-panel">
+                <h2>Spotted:</h2>
+                <img src="your_image.jpg" alt="Spotted Image" class="spotted-image">
+            </div>
+            <div class="right-panel">
+                <div class="menu">
+                    <a href="#" class="menu-item">home</a>
+                    <a href="#" class="menu-item">posts</a>
+                    <a href="#" class="menu-item">pics</a>
+                    <a href="#" class="menu-item">links</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>"""
+
+# CSS content
+styles_css_content = """body {
+    margin: 0;
+    padding: 0;
+    background: url('background_image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    margin-top: 20px;
+}
+
+.header h1 {
+    font-size: 4em;
+    text-transform: lowercase;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-top: 30px;
+}
+
+.left-panel, .right-panel {
+    width: 20%;
+}
+
+.left-panel h2, .right-panel .menu-item {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-transform: lowercase;
+}
+
+.center-panel {
+    width: 40%;
+    text-align: center;
+}
+
+.center-panel h2 {
+    font-size: 1.5em;
+}
+
+.spotted-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: white;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.menu-item:hover {
+    text-decoration: underline;
+}"""
+
+# Write the HTML and CSS files
+with open("/mnt/data/invitation/index.html", "w") as f:
+    f.write(index_html_content)
+
+with open("/mnt/data/invitation/styles.css", "w") as f:
+    f.write(styles_css_content)
+
+# Check the files are created
+os.listdir("/mnt/data/invitation")
